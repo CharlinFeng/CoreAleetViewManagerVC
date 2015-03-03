@@ -1,5 +1,5 @@
 
-    Charlin出框架的目标：简单、易用、高度封装、绝对解耦！
+    Charlin出框架的目标：简单、易用、实用、高度封装、绝对解耦！
 
 # CoreAleetViewManagerVC
 ####高度集成AlertView/ActionSheet,真的只需要一句代码！
