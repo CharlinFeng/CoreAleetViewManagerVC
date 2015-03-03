@@ -14,7 +14,7 @@
 <br /><br />
 
 ##使用示例
-        //显示并处理一个alertView
+    //显示并处理一个alertView
     [CoreAleetViewManagerVC showWithAleetViewType:CoreAleetViewTypeUIAlertView inController:self title:@"标题" message:@"描述" cancelButtonTitle:@"取消" destructiveButtonTitle:@"毁灭" otherButtonTitles:@[@"其他1",@"其他2"] clickedButtonBlock:^(NSInteger index) {
         NSLog(@"%i",index);
     }];
