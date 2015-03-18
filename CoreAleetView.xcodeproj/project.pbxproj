@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3FF09A1AB94B05003A528A /* CoreAleetViewManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3FF0991AB94B05003A528A /* CoreAleetViewManagerVC.m */; };
 		EE94CB471AA598090097E95B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB461AA598090097E95B /* main.m */; };
 		EE94CB4A1AA598090097E95B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB491AA598090097E95B /* AppDelegate.m */; };
 		EE94CB4D1AA598090097E95B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB4C1AA598090097E95B /* ViewController.m */; };
@@ -14,7 +15,6 @@
 		EE94CB521AA598090097E95B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE94CB511AA598090097E95B /* Images.xcassets */; };
 		EE94CB551AA598090097E95B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE94CB531AA598090097E95B /* LaunchScreen.xib */; };
 		EE94CB611AA5980A0097E95B /* CoreAleetViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB601AA5980A0097E95B /* CoreAleetViewTests.m */; };
-		EE94CB6E1AA598AB0097E95B /* CoreAleetViewManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB6D1AA598AB0097E95B /* CoreAleetViewManagerVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE3FF0981AB94B05003A528A /* CoreAleetViewManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAleetViewManagerVC.h; sourceTree = "<group>"; };
+		EE3FF0991AB94B05003A528A /* CoreAleetViewManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAleetViewManagerVC.m; sourceTree = "<group>"; };
 		EE94CB411AA598090097E95B /* CoreAleetView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreAleetView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE94CB451AA598090097E95B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE94CB461AA598090097E95B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +43,6 @@
 		EE94CB5A1AA598090097E95B /* CoreAleetViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreAleetViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE94CB5F1AA598090097E95B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE94CB601AA5980A0097E95B /* CoreAleetViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAleetViewTests.m; sourceTree = "<group>"; };
-		EE94CB6C1AA598AB0097E95B /* CoreAleetViewManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAleetViewManagerVC.h; sourceTree = "<group>"; };
-		EE94CB6D1AA598AB0097E95B /* CoreAleetViewManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAleetViewManagerVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE3FF0971AB94B05003A528A /* CoreAleetViewManagerVC */ = {
+			isa = PBXGroup;
+			children = (
+				EE3FF0981AB94B05003A528A /* CoreAleetViewManagerVC.h */,
+				EE3FF0991AB94B05003A528A /* CoreAleetViewManagerVC.m */,
+			);
+			path = CoreAleetViewManagerVC;
+			sourceTree = "<group>";
+		};
 		EE94CB381AA598090097E95B = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +93,7 @@
 		EE94CB431AA598090097E95B /* CoreAleetView */ = {
 			isa = PBXGroup;
 			children = (
-				EE94CB6B1AA598990097E95B /* CoreAleetViewManagerVC */,
+				EE3FF0971AB94B05003A528A /* CoreAleetViewManagerVC */,
 				EE94CB481AA598090097E95B /* AppDelegate.h */,
 				EE94CB491AA598090097E95B /* AppDelegate.m */,
 				EE94CB4B1AA598090097E95B /* ViewController.h */,
@@ -121,15 +130,6 @@
 				EE94CB5F1AA598090097E95B /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EE94CB6B1AA598990097E95B /* CoreAleetViewManagerVC */ = {
-			isa = PBXGroup;
-			children = (
-				EE94CB6C1AA598AB0097E95B /* CoreAleetViewManagerVC.h */,
-				EE94CB6D1AA598AB0097E95B /* CoreAleetViewManagerVC.m */,
-			);
-			path = CoreAleetViewManagerVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +234,7 @@
 			files = (
 				EE94CB4D1AA598090097E95B /* ViewController.m in Sources */,
 				EE94CB4A1AA598090097E95B /* AppDelegate.m in Sources */,
-				EE94CB6E1AA598AB0097E95B /* CoreAleetViewManagerVC.m in Sources */,
+				EE3FF09A1AB94B05003A528A /* CoreAleetViewManagerVC.m in Sources */,
 				EE94CB471AA598090097E95B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
