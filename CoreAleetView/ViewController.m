@@ -29,9 +29,11 @@
 - (IBAction)showBtn:(id)sender {
     
 
-    [CoreAleetViewManagerVC show:AlertSuccess style:AlertStyleDrop title:@"登陆成功" desc:@"即将跳转" destructiveTitle:@"确定" cancelTitle:nil clickBlock:^(NSUInteger index) {
-        NSLog(@"%i",index);
-    }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [CoreAleetViewManagerVC show:AlertSuccess style:AlertStyleDrop title:@"登陆成功" desc:@"即将跳转" destructiveTitle:@"确定" cancelTitle:nil clickBlock:^(NSUInteger index) {
+            NSLog(@"%i",index);
+        }];
+    });
 
 }
 
