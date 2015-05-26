@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89B67CB11B142203002D98B1 /* AMBouncingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B67CA61B142203002D98B1 /* AMBouncingView.m */; };
+		89B67CB21B142203002D98B1 /* AMSmoothAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B67CA91B142203002D98B1 /* AMSmoothAlertView.m */; };
+		89B67CB31B142203002D98B1 /* checkMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B67CAB1B142203002D98B1 /* checkMark.png */; };
+		89B67CB41B142203002D98B1 /* checkMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B67CAC1B142203002D98B1 /* checkMark@2x.png */; };
+		89B67CB51B142203002D98B1 /* crossMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B67CAD1B142203002D98B1 /* crossMark.png */; };
+		89B67CB61B142203002D98B1 /* crossMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B67CAE1B142203002D98B1 /* crossMark@2x.png */; };
+		89B67CB71B142203002D98B1 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B67CAF1B142203002D98B1 /* info.png */; };
+		89B67CB81B142203002D98B1 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B67CB01B142203002D98B1 /* info@2x.png */; };
 		EE3FF09A1AB94B05003A528A /* CoreAleetViewManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EE3FF0991AB94B05003A528A /* CoreAleetViewManagerVC.m */; };
 		EE94CB471AA598090097E95B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB461AA598090097E95B /* main.m */; };
 		EE94CB4A1AA598090097E95B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94CB491AA598090097E95B /* AppDelegate.m */; };
@@ -28,6 +36,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		89B67CA51B142203002D98B1 /* AMBouncingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBouncingView.h; sourceTree = "<group>"; };
+		89B67CA61B142203002D98B1 /* AMBouncingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBouncingView.m; sourceTree = "<group>"; };
+		89B67CA71B142203002D98B1 /* AMSmoothAlertConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSmoothAlertConstants.h; sourceTree = "<group>"; };
+		89B67CA81B142203002D98B1 /* AMSmoothAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSmoothAlertView.h; sourceTree = "<group>"; };
+		89B67CA91B142203002D98B1 /* AMSmoothAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSmoothAlertView.m; sourceTree = "<group>"; };
+		89B67CAB1B142203002D98B1 /* checkMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkMark.png; sourceTree = "<group>"; };
+		89B67CAC1B142203002D98B1 /* checkMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkMark@2x.png"; sourceTree = "<group>"; };
+		89B67CAD1B142203002D98B1 /* crossMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crossMark.png; sourceTree = "<group>"; };
+		89B67CAE1B142203002D98B1 /* crossMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crossMark@2x.png"; sourceTree = "<group>"; };
+		89B67CAF1B142203002D98B1 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		89B67CB01B142203002D98B1 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		EE3FF0981AB94B05003A528A /* CoreAleetViewManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAleetViewManagerVC.h; sourceTree = "<group>"; };
 		EE3FF0991AB94B05003A528A /* CoreAleetViewManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAleetViewManagerVC.m; sourceTree = "<group>"; };
 		EE94CB411AA598090097E95B /* CoreAleetView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreAleetView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,9 +82,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89B67CA31B142203002D98B1 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				89B67CA41B142203002D98B1 /* AMSmoothAlert */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		89B67CA41B142203002D98B1 /* AMSmoothAlert */ = {
+			isa = PBXGroup;
+			children = (
+				89B67CA51B142203002D98B1 /* AMBouncingView.h */,
+				89B67CA61B142203002D98B1 /* AMBouncingView.m */,
+				89B67CA71B142203002D98B1 /* AMSmoothAlertConstants.h */,
+				89B67CA81B142203002D98B1 /* AMSmoothAlertView.h */,
+				89B67CA91B142203002D98B1 /* AMSmoothAlertView.m */,
+				89B67CAA1B142203002D98B1 /* assets */,
+			);
+			path = AMSmoothAlert;
+			sourceTree = "<group>";
+		};
+		89B67CAA1B142203002D98B1 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				89B67CAB1B142203002D98B1 /* checkMark.png */,
+				89B67CAC1B142203002D98B1 /* checkMark@2x.png */,
+				89B67CAD1B142203002D98B1 /* crossMark.png */,
+				89B67CAE1B142203002D98B1 /* crossMark@2x.png */,
+				89B67CAF1B142203002D98B1 /* info.png */,
+				89B67CB01B142203002D98B1 /* info@2x.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		EE3FF0971AB94B05003A528A /* CoreAleetViewManagerVC */ = {
 			isa = PBXGroup;
 			children = (
+				89B67CA31B142203002D98B1 /* Lib */,
 				EE3FF0981AB94B05003A528A /* CoreAleetViewManagerVC.h */,
 				EE3FF0991AB94B05003A528A /* CoreAleetViewManagerVC.m */,
 			);
@@ -213,8 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE94CB501AA598090097E95B /* Main.storyboard in Resources */,
+				89B67CB31B142203002D98B1 /* checkMark.png in Resources */,
+				89B67CB61B142203002D98B1 /* crossMark@2x.png in Resources */,
 				EE94CB551AA598090097E95B /* LaunchScreen.xib in Resources */,
+				89B67CB51B142203002D98B1 /* crossMark.png in Resources */,
+				89B67CB41B142203002D98B1 /* checkMark@2x.png in Resources */,
+				89B67CB81B142203002D98B1 /* info@2x.png in Resources */,
 				EE94CB521AA598090097E95B /* Images.xcassets in Resources */,
+				89B67CB71B142203002D98B1 /* info.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,10 +292,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B67CB11B142203002D98B1 /* AMBouncingView.m in Sources */,
 				EE94CB4D1AA598090097E95B /* ViewController.m in Sources */,
 				EE94CB4A1AA598090097E95B /* AppDelegate.m in Sources */,
 				EE3FF09A1AB94B05003A528A /* CoreAleetViewManagerVC.m in Sources */,
 				EE94CB471AA598090097E95B /* main.m in Sources */,
+				89B67CB21B142203002D98B1 /* AMSmoothAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CoreAleetView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -368,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CoreAleetView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

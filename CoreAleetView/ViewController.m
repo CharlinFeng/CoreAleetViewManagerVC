@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CoreAleetViewManagerVC.h"
 
+
 @interface ViewController ()
 
 
@@ -27,16 +28,10 @@
 
 - (IBAction)showBtn:(id)sender {
     
-    //显示并处理一个alertView
-    [CoreAleetViewManagerVC showWithAleetViewType:CoreAleetViewTypeUIAlertView inController:self title:@"标题" message:@"描述" cancelButtonTitle:@"取消" destructiveButtonTitle:@"毁灭" otherButtonTitles:@[@"其他1",@"其他2"] clickedButtonBlock:^(NSInteger index) {
+
+    [CoreAleetViewManagerVC show:AlertSuccess style:AlertStyleDrop title:@"登陆成功" desc:@"即将跳转" destructiveTitle:@"确定" cancelTitle:nil clickBlock:^(NSUInteger index) {
         NSLog(@"%i",index);
     }];
-
-    //显示并处理一个actionSheet
-//    [CoreAleetViewManagerVC showWithAleetViewType:CoreAleetViewTypeUIActionSheet inController:self title:@"标题" message:@"消息" cancelButtonTitle:@"取消231" destructiveButtonTitle:@"毁灭" otherButtonTitles:@[@"其他1",@"其他2"] clickedButtonBlock:^(NSInteger index) {
-//        NSLog(@"%i",index);
-//    }];
-
 
 }
 

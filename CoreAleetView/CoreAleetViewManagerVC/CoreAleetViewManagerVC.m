@@ -165,4 +165,50 @@
 }
 
 
+
+
+
+
+/** 自定义AlertView */
++(void)show:(AlertType)type style:(AlertStyle)style title:(NSString *)title desc:(NSString *)desc destructiveTitle:(NSString *)destructiveTitle cancelTitle:(NSString *)cancelTitle clickBlock:(void(^)(NSUInteger index))clickBlock{
+    
+    //创建
+    AMSmoothAlertView *alertView =nil;
+    
+    BOOL hasCancelButton = cancelTitle!=nil;
+    
+    if(AlertStyleDrop == style){//Drop
+        
+        alertView = [[AMSmoothAlertView alloc] initDropAlertWithTitle:title andText:desc andCancelButton:hasCancelButton forAlertType:type andColor:nil];
+        
+    }else{//Fade
+        
+        alertView = [[AMSmoothAlertView alloc] initFadeAlertWithTitle:title andText:desc andCancelButton:hasCancelButton forAlertType:type andColor:nil];
+    }
+    
+    //设置标题
+    [alertView.defaultButton setTitle:destructiveTitle forState:UIControlStateNormal];
+    if(hasCancelButton) [alertView.cancelButton setTitle:cancelTitle forState:UIControlStateNormal];
+    
+    //设置字体
+    alertView.titleLabel.font = [UIFont systemFontOfSize:20.0f];
+    alertView.textLabel.font =[UIFont systemFontOfSize:16.0f];
+    
+    //设置tag
+    alertView.defaultButton.tag = 0;
+    alertView.cancelButton.tag =1;
+    
+
+    
+    alertView.completionBlock = ^(AMSmoothAlertView *alertView, UIButton *btn){
+      
+        NSUInteger index= btn.tag;
+        
+        if(clickBlock != nil) clickBlock(index);
+    };
+    
+    [alertView show];
+}
+
+
 @end
