@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 AMarliac. All rights reserved.
 //
 
-typedef NS_ENUM(NSInteger, AlertType) {
+typedef enum{
     AlertSuccess,
     AlertFailure,
     AlertInfo
-};
+}AlertType;
+
 
 
 typedef NS_ENUM(NSInteger, AnimationType) {
