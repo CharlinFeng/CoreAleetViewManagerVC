@@ -96,12 +96,17 @@
 - (void) _initViewWithTitle:(NSString *)title andText:(NSString *)text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType)type andColor:(UIColor*) color
 {
     self.frame = [self screenFrame];
-    self.opaque = YES;
-    self.alpha = 1;
-  
-    bg = [[UIView alloc]initWithFrame:[self screenFrame]];
-    
-    bg.backgroundColor = rgba(0, 0, 0, .5f);
+
+    if([UIDevice currentDevice].systemVersion.floatValue >= 8.0){
+        UIVisualEffectView *ev = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        bg = ev;
+    }else{
+        UIToolbar *toolBar = [[UIToolbar alloc]init];
+        toolBar.barStyle = UIBarStyleBlackOpaque;
+        bg = toolBar;
+    }
+
+    bg.frame = [self screenFrame];
   
     alertView = [self alertPopupView];
   
@@ -115,7 +120,7 @@
 
 - (UIView*) alertPopupView
 {
-    UIView * alertSquare = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 150)];
+    UIView * alertSquare = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 220, 180)];
     
     alertSquare.backgroundColor = [UIColor colorWithRed:0.937 green:0.937 blue:0.937 alpha:1];
     alertSquare.center = CGPointMake([self screenFrame].size.width/2, -[self screenFrame].size.height/2);
@@ -154,9 +159,6 @@
 
 -(void) performScreenshotAndBlur
 {
-
-    bg.alpha = 0.0;
-    
     [self addSubview:bg];
 }
 
@@ -194,7 +196,7 @@
 - (void) labelSetupWithTitle:(NSString*) title andText:(NSString*) text
 {
     _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 180, 30)];
-    _titleLabel.center = CGPointMake(alertView.frame.size.width/2, 45);
+    _titleLabel.center = CGPointMake(alertView.frame.size.width/2, 60);
     _titleLabel.text = title;
     _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-LightItalic" size:20.0f];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -203,7 +205,7 @@
     
     
     _textLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 180, 50)];
-    _textLabel.center = CGPointMake(alertView.frame.size.width/2, 80);
+    _textLabel.center = CGPointMake(alertView.frame.size.width/2, 90);
     _textLabel.text = text;
     _textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
     _textLabel.textAlignment = NSTextAlignmentCenter;
@@ -219,12 +221,12 @@
     if (hasCancelButton) {
         //default button
         _defaultButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 84, 30)];
-        _defaultButton.center = CGPointMake((alertView.frame.size.width/4)+3, 120);
+        _defaultButton.center = CGPointMake((alertView.frame.size.width/4)+3, 150);
 
         //cancel button
         _cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 84, 30)];
-        _cancelButton.center = CGPointMake((alertView.frame.size.width*3/4)-3, 120);
-        _cancelButton.backgroundColor = [UIColor colorWithRed:0.792 green:0.792 blue:0.792 alpha:1];
+        _cancelButton.center = CGPointMake((alertView.frame.size.width*3/4)-3, 150);
+        _cancelButton.backgroundColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1];
         
         [_cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
         _cancelButton.titleLabel.textColor = [UIColor whiteColor];
@@ -233,7 +235,7 @@
         [_cancelButton.layer setCornerRadius:3.0f];
     }else{
         _defaultButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 180, 30)];
-        _defaultButton.center = CGPointMake(alertView.frame.size.width/2, 120);
+        _defaultButton.center = CGPointMake(alertView.frame.size.width/2, 150);
     }
 
     [self setColorForButton:color onButton:_defaultButton withType:type];
@@ -316,26 +318,15 @@
             return ^(BOOL finished){};
         }
     };
-    
-    //block 1
-    [animationBlocks addObject:^(BOOL finished){;
-        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            bg.alpha = 1.0;
-        } completion: getNextAnimation()];
-    }];
-    
-    //block 2
-    [animationBlocks addObject:^(BOOL finished){;
-        [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            alertView.center = CGPointMake([self screenFrame].size.width/2, ([self screenFrame].size.height/2)+alertView.frame.size.height*0.1);
-        } completion: getNextAnimation()];
-    }];
+
     
     //block 3
-    [animationBlocks addObject:^(BOOL finished){;
-        [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [animationBlocks addObject:^(BOOL finished){
+
+        [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.7 initialSpringVelocity:6 options:UIViewAnimationOptionCurveEaseOut animations:^{
             alertView.center = CGPointMake([self screenFrame].size.width/2, ([self screenFrame].size.height/2));
-        } completion: getNextAnimation()];
+        } completion:getNextAnimation()];
+
     }];
     
     //add a block to our queue
@@ -374,7 +365,7 @@
     //block 1
     [animationBlocks addObject:^(BOOL finished){;
         [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            bg.alpha = 1.0;
+         
         } completion: getNextAnimation()];
     }];
     
@@ -397,8 +388,10 @@
 
 - (void) circleAnimation
 {
+    circleView.frame = [circleView newFrameWithWidth:60 andHeight:60];
+    _logoView.frame = [self newFrameForView:_logoView withWidth:20 andHeight:20];
     NSMutableArray* animationBlocks = [NSMutableArray new];
-    
+
     typedef void(^animationBlock)(BOOL);
     
     // getNextAnimation
@@ -415,25 +408,31 @@
     
     //block 1
     [animationBlocks addObject:^(BOOL finished){;
-        [UIView animateWithDuration:0.15 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            circleView.frame = [circleView newFrameWithWidth:85 andHeight:85];
-            _logoView.frame = [self newFrameForView:_logoView withWidth:40 andHeight:40];
+
+        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+
+            circleView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            _logoView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            
         } completion: getNextAnimation()];
     }];
     
     //block 2
-    [animationBlocks addObject:^(BOOL finished){;
-        [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            circleView.frame = [circleView newFrameWithWidth:50 andHeight:50];
-            _logoView.frame = [self newFrameForView:_logoView withWidth:15 andHeight:15];
+    [animationBlocks addObject:^(BOOL finished){
+
+        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            circleView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            _logoView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            
         } completion: getNextAnimation()];
     }];
     
     //block 3
-    [animationBlocks addObject:^(BOOL finished){;
-        [UIView animateWithDuration:0.05 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            circleView.frame = [circleView newFrameWithWidth:60 andHeight:60];
-            _logoView.frame = [self newFrameForView:_logoView withWidth:20 andHeight:20];
+    [animationBlocks addObject:^(BOOL finished){
+
+        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            circleView.transform = CGAffineTransformIdentity;
+            _logoView.transform = CGAffineTransformIdentity;
         } completion: getNextAnimation()];
     }];
     
